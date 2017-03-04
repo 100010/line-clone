@@ -1,0 +1,38 @@
+!!!
+/
+  Aerial by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+%html
+  %head
+    %title line clone app
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    /[if lte IE 8] <script src="assets/js/ie/html5shiv.js"></script>
+    %link{:href => "assets/css/main.css", :rel => "stylesheet"}/
+    /[if lte IE 8] <link rel="stylesheet" href="assets/css/ie8.css" />
+    /[if lte IE 9] <link rel="stylesheet" href="assets/css/ie9.css" />
+  %body.loading
+    #wrapper
+      #bg
+      #overlay
+      #main
+        / Header
+        %header#header
+          %h1 Line Clone App
+          %p implemented by yohei senju
+          %nav
+            %ul
+              %li
+                = link_to '' do
+                  get started
+              %li
+                = link_to '' do
+                  log in
+        / Footer
+        %footer#footer
+    /[if lte IE 8] <script src="assets/js/ie/respond.min.js"></script>
+    :javascript
+      window.onload = function() { document.body.className = ''; }
+      window.ontouchmove = function() { return false; }
+      window.onorientationchange = function() { document.body.scrollTop = 0; }
