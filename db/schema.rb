@@ -16,18 +16,25 @@ ActiveRecord::Schema.define(version: 20170304101237) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "chat_room", force: :cascade do |t|
+  create_table "chat_room_users", force: :cascade do |t|
+    t.uuid    "user_id",      null: false
+    t.integer "chat_room_id", null: false
+    t.index ["chat_room_id"], name: "index_chat_room_users_on_chat_room_id", using: :btree
+    t.index ["user_id"], name: "index_chat_room_users_on_user_id", using: :btree
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
     t.string   "name",                 null: false
     t.datetime "last_communicated_at"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "chat_room_users", force: :cascade do |t|
-    t.uuid    "user_id",      null: false
-    t.integer "chat_room_id", null: false
-    t.index ["chat_room_id"], name: "index_chat_room_users_on_chat_room_id", using: :btree
-    t.index ["user_id"], name: "index_chat_room_users_on_user_id", using: :btree
+  create_table "friend_relations", force: :cascade do |t|
+    t.uuid "user_id",   null: false
+    t.uuid "friend_id", null: false
+    t.index ["friend_id"], name: "index_friend_relations_on_friend_id", using: :btree
+    t.index ["user_id"], name: "index_friend_relations_on_user_id", using: :btree
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
