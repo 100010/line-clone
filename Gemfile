@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 gem 'devise'
 gem 'haml-rails'
+gem 'erb2haml'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
