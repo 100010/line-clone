@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 gem 'devise'
+gem 'carrierwave'
 gem 'haml-rails'
 gem 'erb2haml'
 # gem 'capistrano-rails', group: :development
