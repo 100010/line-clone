@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   }
 
   root 'welcome#index'
+
+  resources :users, only: [] do
+    member do
+      get :home
+    end
+  end
 end
