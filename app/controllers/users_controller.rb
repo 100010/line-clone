@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def quit_friend
-    binding.pry
     current_user.quit_friend(params[:friend_id])
   end
 
