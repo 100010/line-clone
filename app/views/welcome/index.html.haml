@@ -8,7 +8,7 @@
     %title line clone app
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    /[if lte IE 8] <script src="assets/js/ie/html5shiv.js"></script>
+    /[if lte IE 8] <tscript src="assets/js/ie/html5shiv.js"></script>
     %link{:href => "toppage/css/main.css", :rel => "stylesheet"}/
     /[if lte IE 8] <link rel="stylesheet" href="assets/css/ie8.css" />
     /[if lte IE 9] <link rel="stylesheet" href="assets/css/ie9.css" />
@@ -24,10 +24,10 @@
           %nav
             %ul
               %li
-                = link_to '' do
+                = link_to new_user_session_path do
                   get started
               %li
-                = link_to '' do
+                = link_to new_user_registration_path do
                   log in
         / Footer
         %footer#footer
