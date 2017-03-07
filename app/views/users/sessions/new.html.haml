@@ -1,17 +1,41 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+%body.am-splash-screen
+  .am-wrapper.am-login
+    .am-content
+      .main-content
+        .login-container
+          .panel.panel-default
+            .panel-heading
+              %span Please enter your user information.
+            .panel-body
+              = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+                = devise_error_messages!
+                .login-form
+                  .form-group
+                    .input-group
+                      %span.input-group-addon
+                        %i.icon.s7-user
+                      = f.email_field :email, autofocus: true, class: "form-control", id: "username", placeholder: 'your email address'
+                  .form-group
+                    .input-group
+                      %span.input-group-addon
+                        %i.icon.s7-lock
+                      = f.password_field :password, class: "form-control", placeholder: 'password'
+                  .form-group.login-submit
+                    %button.btn.btn-primary.btn-lg{type: "submit"} Log me in
+                  .form-group.footer.row
+                    .col-xs-6
+                      %a{:href => "#"} Forgot Password?
+                    .col-xs-6.remember
+                      %label{:for => "remember"} Remember Me
+                      .am-checkbox
+                        %input#remember{:type => "checkbox"}/
+                        %label{:for => "remember"}
+  %script{:src => "assets/lib/jquery/jquery.min.js", :type => "text/javascript"}
+  %script{:src => "assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js", :type => "text/javascript"}
+  %script{:src => "assets/js/main.js", :type => "text/javascript"}
+  %script{:src => "assets/lib/bootstrap/dist/js/bootstrap.min.js", :type => "text/javascript"}
+  :javascript
+    $(document).ready(function(){
+    	//initialize the javascript
+    	App.init();
+    });

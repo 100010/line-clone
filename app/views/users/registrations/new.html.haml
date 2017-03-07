@@ -1,21 +1,48 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "users/shared/links"
+%body.am-splash-screen
+  .am-wrapper.am-login.am-signup
+    .am-content
+      .main-content
+        .login-container.sign-up
+          .panel.panel-default
+            .panel-heading
+              %img.logo-img{:alt => "logo", :height => "39px", :src => "assets/img/logo-full-retina.png", :width => "150px"}/
+              %span Please enter your user information.
+            .panel-body
+              = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+                = devise_error_messages!
+                .title
+                  %span Sign up with
+                .sign-up-form
+                  .form-group.row.social-signup
+                    .col-xs-6
+                      %button.btn.btn-block.btn-social.btn-facebook{:type => "button"}
+                        %i.fa.fa-facebook.icon.icon-left
+                        Facebook
+                    .col-xs-6
+                      %button.btn.btn-block.btn-social.btn-twitter{:type => "button"}
+                        %i.fa.fa-twitter.icon.icon-left
+                        Twitter
+                  .title
+                    %span.title Or
+                  .form-group
+                    #nick-handler.input-group
+                      %span.input-group-addon
+                        %i.icon.s7-user
+                      = f.text_field :name, class: "form-control", placeholder: "user name"
+                  .form-group
+                    #email-handler.input-group
+                      %span.input-group-addon
+                        %i.icon.s7-mail
+                      = f.email_field :email, class: "form-control", placeholder: "email"
+                  .form-group.row
+                    .col-xs-6
+                      #password-handler.input-group
+                        %span.input-group-addon
+                          %i.icon.s7-lock
+                        = f.password_field :password, class: "form-control", placeholder: 'password'
+                    .col-xs-6
+                      #confirm-handler.input-group
+                        %span.input-group-addon
+                          %i.icon.s7-lock
+                        = f.password_field :password_confirmation, class: "form-control", placeholder: 'password confimation'
+                %button.btn.btn-block.btn-primary.btn-lg{:type => "submit"} Sign Up
