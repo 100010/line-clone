@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170304101237) do
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name",                                null: false
+    t.string   "image",                               null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
