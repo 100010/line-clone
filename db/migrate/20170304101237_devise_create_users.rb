@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       ## Custom atttibute
       t.string :name, null: false
-      t.string :image, null: false
+      t.string :image
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
