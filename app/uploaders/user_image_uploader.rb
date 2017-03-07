@@ -6,7 +6,7 @@ class UserImageUploader < BaseUploader
   end
 
   def default_url
-    "/img/item/" + [version_name, "default_item_image.png"].compact.join('_')
+    "/img/user/" + [version_name, "default_user_image.jpg"].compact.join('_')
   end
 
 end
