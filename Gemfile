@@ -22,7 +22,7 @@ gem 'mini_magick'
 gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
-gem "stroke-seven-rails"
+gem 'ransack'
 
 # gem 'capistrano-rails', group: :development
 source 'https://rails-assets.org' do
