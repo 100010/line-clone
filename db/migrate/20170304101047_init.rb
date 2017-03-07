@@ -7,6 +7,7 @@ class Init < ActiveRecord::Migration[5.0]
     end
 
     create_table :chat_rooms do |t|
+      t.integer :status, null: false, default: 0
       t.string :name, null: false
       t.datetime :last_communicated_at
       t.timestamps null: false
