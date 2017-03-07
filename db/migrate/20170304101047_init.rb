@@ -16,5 +16,13 @@ class Init < ActiveRecord::Migration[5.0]
       t.uuid :user_id, null: false, index: true
       t.integer :chat_room_id, null: false, index: true
     end
+
+    create_table :messages do |t|
+      t.uuid :user_id, null: false, index: true
+      t.boolean :is_read, null: false, default: false
+      t.integer :chat_room_id, null: false, index: true
+      t.text :content, null: false
+      t.timestamps null: false
+    end
   end
 end
