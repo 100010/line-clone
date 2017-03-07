@@ -1,0 +1,33 @@
+.page-head
+  %h2 Tables
+  %ol.breadcrumb
+    %li
+      %a{:href => "#"} Home
+    %li
+      %a{:href => "#"} Tables
+    %li.active General
+.main-content
+  .row
+    .col-sm-12
+      .widget.widget-fullwidth.widget-small
+        .widget-head
+          .tools
+            %span.icon.s7-upload
+            %span.icon.s7-edit
+            %span.icon.s7-close
+          .title Responsive Table
+        .table-responsive.noSwipe
+          %table.table.table-striped.table-fw-widget.table-hover
+            %thead
+              %tr
+                %th{:width => "50%"} User
+                %th{:width => "50%"} Commit Message
+            %tbody.no-border-x
+              - current_user.friends.each do |friend|
+                %tr
+                  %td.user-avatar
+                    = image_tag friend.image_url
+                    = friend.name
+                  %td
+                    = link_to '友達やめる', quit_friend_user_path(friend_id: friend.id), method: :delete, class: 'btn btn-primary'
+                    = link_to 'トークする', '', class: 'btn btn-default'

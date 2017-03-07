@@ -2,3 +2,32 @@
   .container-fluid
     .navbar-header
       .page-title
+        %span UI Notifications
+      %a.am-toggle-left-sidebar.navbar-toggle.collapsed{:href => "#"}
+        %span.icon-bar
+          %span
+          %span
+          %span
+      %a.navbar-brand{:href => "index.php"}
+    %a.am-toggle-top-header-menu.collapsed{"data-target" => "#am-navbar-collapse", "data-toggle" => "collapse", :href => "#"}
+      %span.icon.s7-angle-down
+    #am-navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right.am-user-nav
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = image_tag current_user.image_url
+            %span.user-name #{current_user.name}
+            %span.angle-down.s7-angle-down
+          %ul.dropdown-menu{:role => "menu"}
+            %li
+              = link_to '' do
+                %span.icon.s7-user>
+                My profile
+            %li
+              = link_to '' do
+                %span.icon.s7-config>
+                Settings
+            %li
+              = link_to destroy_user_session_path, method: :delete do
+                %span.icon.s7-power>
+                Sign Out

@@ -2,14 +2,18 @@
   .content
     %ul.sidebar-elements
       %li.parent
-        = link_to "" do
-          %i.icon.s7-monitor
-          %span トップ
+        = link_to friends_user_path(current_user) do
+          %i.icon.s7-users
+          %span 友達
       %li.parent
-        = link_to "" do
-          %i.icon.s7-note2
-          %span 過去の振込一覧
+        = link_to talks_user_path(current_user) do
+          %i.icon.s7-chat
+          %span トークルーム
       %li.parent
-        = link_to  do
+        = link_to '' do
           %i.icon.s7-check
-          %span 引き落としをする
+          %span トーク履歴
+      %li.parent
+        = link_to add_friends_user_path(current_user) do
+          %i.icon.s7-add-user
+          %span 友達を追加する
