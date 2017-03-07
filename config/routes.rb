@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     member do
       get :home
+      get :friends
+      get :talks
+      get :add_friends
+      delete :quit_friend
     end
   end
 end
