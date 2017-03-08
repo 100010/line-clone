@@ -17,3 +17,7 @@
         = link_to add_friends_user_path(current_user) do
           %i.icon.s7-add-user
           %span 友達を追加する
+      %li.parent
+        = link_to setting_user_path(current_user) do
+          %i.icon.s7-settings
+          %span 設定
