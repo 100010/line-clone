@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :friends
       get :talks
       get :add_friends
+      get :setting
       delete :quit_friend
     end
   end
