@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :chat_room_users
   has_many :chat_rooms, through: :chat_room_users
 
+  validates :name, presence: true
+  validates :email, presence: true
 
   def add_friend(user)
     self.friend_relations.create(friend_id: user.id)
