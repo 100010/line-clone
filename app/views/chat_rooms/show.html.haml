@@ -1,0 +1,55 @@
+.page-head
+  %h2 Tables
+  %ol.breadcrumb
+    %li
+      %a{:href => "#"} Home
+    %li
+      %a{:href => "#"} Tables
+    %li.active General
+.main-content
+  .row
+    .col-md-12
+      .panel.panel-default.panel-heading-fullwidth.panel-primary
+        .panel-heading
+          .tools
+            %a{:href => "#"}
+              %span.icon.s7-edit
+            %a{:href => "#"}
+              %span.icon.s7-close
+          .title Chat Messages
+        .chat
+          .chat-window
+            .title
+              %span.icon.return.s7-angle-left
+            .chat-messages
+              .am-scroller.nano
+                .content.nano-content{:style => "margin-right: 0px;"}
+                  %ul
+                    - @chat_room.messages.includes(:user).each do |message|
+                      - if message.user.id == current_user
+                        %li.self
+                          .msg= message.content
+                      - else
+                        %li.friend
+                          .msg= message.content
+                .nano-pane{:style => "display: block;"}
+                  .nano-slider{:style => "height: 241px; transform: translate(0px, 0px);"}
+        .chat-input
+          .input-wrapper
+            = form_for Message.new do |f|
+              = f.hidden_field :user_id, value: current_user.id
+              = f.hidden_field :chat_room_id, value: @chat_room.id
+              = f.text_field :content, placeholder: "Message..", class: 'cus-message-input'
+              = f.submit  "Done", class: 'btn btn-primary'
+:css
+  .cus-message-input {
+    border-width: 0;
+    border-top: 1px solid #ededed;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 20px;
+    padding-left: 42px;
+    padding-right: 40px;
+    outline: none;
+  }

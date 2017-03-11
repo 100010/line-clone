@@ -5,4 +5,40 @@
       %a{:href => "#"} Home
     %li
       %a{:href => "#"} Tables
-    %li.active General
+    %li.active search friend
+.main-content
+  .row
+    .col-sm-12
+      - if @results.empty?
+        .col-sm-12
+          .form-group
+            = form_tag add_friends_user_path(current_user), class: 'form-horizontal', method: :get  do
+              .col-sm-6
+                = email_field_tag :email,"", class: 'form-control', placeholder: 'search by user email..', type: 'search'
+              .col-sm-3
+                = submit_tag "search", class: 'btn btn-primary'
+      - else
+        .widget.widget-fullwidth.widget-small
+          .widget-head
+            .tools
+              %span.icon.s7-upload
+              %span.icon.s7-edit
+              %span.icon.s7-close
+            .title friend
+        .table-responsive.noSwipe
+          %table.table.table-striped.table-fw-widget.table-hover
+            %thead
+              %tr
+                %th{:width => "50%"} User
+                %th{:width => "50%"} Commit Message
+            %tbody.no-border-x
+              - @results.each do |user|
+                %tr
+                  %td.user-avatar
+                    = image_tag user.image_url
+                    = user.name
+                  %td
+                    - if user == current_user
+                      = link_to 'you!', home_user_path(current_user), class: 'btn btn-primary'
+                    - else
+                      = link_to '友達になる', add_friend_user_path(friend_id: user.id), method: :post, class: 'btn btn-primary'

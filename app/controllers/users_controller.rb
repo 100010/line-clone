@@ -10,16 +10,22 @@ class UsersController < ApplicationController
     current_user.quit_friend(params[:friend_id])
   end
 
-  def search_friend
-    render nothing: true
-    key_word   = strip_with_full_size_space!(params[:q][:name_cont])
-    @results   = User.where(email: key_word)
+  def add_friends
+    @results = User.where(email: params[:email])
+  end
+
+  def start_talk
+    name = "#{current_user.name} と#{params[:friend_name]}のトーク"
+    new_chat_room = ChatRoom.create(name: name)
+    new_chat_room.join(current_user.id)
+    new_chat_room.join(params[:friend_id])
+    redirect_to chat_room_path(new_chat_room)
   end
 
   def add_friend
-    render nothing: true
     user = User.find params[:friend_id]
     current_user.add_friend user
+    redirect_default
   end
 
   private
@@ -41,7 +47,6 @@ class UsersController < ApplicationController
 
 
   def unique_friend!
-    binding.pry
     current_user
   end
 

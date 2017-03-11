@@ -23,11 +23,9 @@
                 %th{:width => "50%"} User
                 %th{:width => "50%"} Commit Message
             %tbody.no-border-x
-              - current_user.friends.each do |friend|
+              - @chat_rooms.each do |chat_room|
                 %tr
                   %td.user-avatar
-                    = image_tag friend.image_url
-                    = friend.name
+                    = chat_room.name
                   %td
-                    = link_to '友達やめる', quit_friend_user_path(friend_id: friend.id), method: :delete, class: 'btn btn-primary'
-                    = link_to 'トークする', start_talk_user_path(friend_id: friend, friend_name: friend.name), class: 'btn btn-default'
+                    = link_to 'トーク', user_chat_room_path(current_user, chat_room), class: 'btn btn-default'
