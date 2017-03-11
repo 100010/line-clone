@@ -38,5 +38,7 @@
                   %td
                     - if user == current_user
                       = link_to 'you!', home_user_path(current_user), class: 'btn btn-primary'
+                    - elsif current_user.friends.pluck(:id).includes?(user.id)
+                      = link_to 'すでに友達です', '#', class: 'btn btn-primary'
                     - else
                       = link_to '友達になる', add_friend_user_path(friend_id: user.id), method: :post, class: 'btn btn-primary'
