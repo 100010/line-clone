@@ -9,10 +9,10 @@
         = link_to user_chat_rooms_path(current_user) do
           %i.icon.s7-chat
           %span トークルーム
-      %li.parent
-        = link_to '' do
-          %i.icon.s7-check
-          %span トーク履歴
+      -# %li.parent
+      -#   = link_to '' do
+      -#     %i.icon.s7-check
+      -#     %span トーク履歴
       %li.parent
         = link_to add_friends_user_path(current_user) do
           %i.icon.s7-add-user
