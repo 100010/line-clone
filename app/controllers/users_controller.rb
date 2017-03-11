@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     new_chat_room = ChatRoom.create(name: name)
     new_chat_room.join(current_user.id)
     new_chat_room.join(params[:friend_id])
-    redirect_to chat_room_path(new_chat_room)
+    redirect_to user_chat_room_path(current_user, new_chat_room)
   end
 
   def add_friend
