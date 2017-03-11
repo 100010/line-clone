@@ -4,26 +4,12 @@
       .main-content
         .login-container.sign-up
           .panel.panel-default
-            .panel-heading
-              %img.logo-img{:alt => "logo", :height => "39px", :src => "assets/img/logo-full-retina.png", :width => "150px"}/
-              %span Please enter your user information.
             .panel-body
               = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
                 = devise_error_messages!
                 .title
                   %span Sign up with
                 .sign-up-form
-                  .form-group.row.social-signup
-                    .col-xs-6
-                      %button.btn.btn-block.btn-social.btn-facebook{:type => "button"}
-                        %i.fa.fa-facebook.icon.icon-left
-                        Facebook
-                    .col-xs-6
-                      %button.btn.btn-block.btn-social.btn-twitter{:type => "button"}
-                        %i.fa.fa-twitter.icon.icon-left
-                        Twitter
-                  .title
-                    %span.title Or
                   .form-group
                     #nick-handler.input-group
                       %span.input-group-addon
