@@ -14,12 +14,12 @@
                     .input-group
                       %span.input-group-addon
                         %i.icon.s7-user
-                      = f.email_field :email, autofocus: true, class: "form-control", id: "username", placeholder: 'your email address'
+                      = f.email_field :email, autofocus: true, class: "form-control", id: "username", placeholder: 'your email address', required: true
                   .form-group
                     .input-group
                       %span.input-group-addon
                         %i.icon.s7-lock
-                      = f.password_field :password, class: "form-control", placeholder: 'password'
+                      = f.password_field :password, class: "form-control", placeholder: 'password', required: true
                   .form-group.login-submit
                     %button.btn.btn-primary.btn-lg{type: "submit"} Log me in
                   .form-group.footer.row
