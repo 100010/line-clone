@@ -23,7 +23,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'ransack'
-
+gem 'exception_notification'
 # gem 'capistrano-rails', group: :development
 source 'https://rails-assets.org' do
   gem  'rails-assets-nanoscroller'
